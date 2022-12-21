@@ -1,7 +1,9 @@
 import React, { ReactNode } from "react";
+import {useRouter} from 'next/router'
 import Head from "next/head";
 import Header from "./Header"
 import Footer from "./Footer"
+import Showcase from "./ShowCase";
 
 // Required props
 interface ChildrenProps {
@@ -20,14 +22,15 @@ interface LayoutProps extends ChildrenProps, HeadProps {}
 
 // Use the optional prop interface to define the default props
 const defaultProps: HeadProps = {
-  title: "DJ Eventes | Find the hottest parties",
-  description: "Find the latest DJ and other musical events",
-  keywords: "music, dj, edm, events",
+  title: "Hopper Projects | Find the projects",
+  description: "Seus projetos e portifolios",
+  keywords: "hopper, projects, pmo, portifolio",
 };
 
 // Use the full props within the actual component
 const Layout = (props: LayoutProps) => {
   const { title, keywords, description, children } = props;
+  const router = useRouter();
   return (
     <div>
       <Head>
@@ -36,8 +39,9 @@ const Layout = (props: LayoutProps) => {
         <meta name="keywords" content={keywords} />
       </Head>
 
-      <Header></Header>
+      <Header/>
 
+      {router.pathname === '/' && <Showcase />}
       <div className="container">{children}</div>
 
       <Footer />
