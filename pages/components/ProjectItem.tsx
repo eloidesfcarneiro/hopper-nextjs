@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 export type IProjetos = {
-  id: number;
   name: string;
   slug: string;
   stack: string;

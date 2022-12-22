@@ -12,7 +12,7 @@ export default function EventsPage({projetos} : ProjetoProps ) {
       {projetos.length === 0 && <h3>No events to show</h3>}
 
      {projetos.map((ps) => (
-      <ProjectItem id={ps.id} name={ps.name} slug={ps.slug} stack={ps.stack} image={ps.image} description={ps.description}></ProjectItem> 
+      <ProjectItem name={ps.name} slug={ps.slug} stack={ps.stack} image={ps.image} description={ps.description}></ProjectItem> 
      ))}
     </Layout>
   );
